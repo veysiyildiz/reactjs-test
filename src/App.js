@@ -1,14 +1,23 @@
 import React from "react";
-// import route stuff
+import { Switch, Route } from 'react-router-dom';
 
-// import Navigation component
-// import HomePage component
-// import ModelerPage component
+import HomePage from './pages/HomePage';
+import ModelerPage from './pages/ModelerPage';
+import FrameworksPage from './pages/FrameworksPage';
+import Navigation from './components/Navigation';
 
-export default () => (
-  <div>
-    {/* render a navigation component */}
-    <hr />
-    {/* render routing logic of react-router-dom */}
-  </div>
-);
+const App = () => {
+  return (
+    <div>
+      <Navigation />
+      <hr />
+      <Switch>
+          <Route exact key='home' path='/' component={HomePage} />
+          <Route exact key='modeler' path='/modeler' component={ModelerPage} />
+          <Route exact key='frameworks' path='/frameworks' component={FrameworksPage} />
+      </Switch>
+    </div>
+  )
+};
+
+export default App;
