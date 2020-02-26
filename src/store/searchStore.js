@@ -1,21 +1,21 @@
-import { observable, action, computed } from 'mobx'
+import { observable, action } from "mobx";
+import items from "../pages/items";
 
 export class SearchStore {
   @observable
-  searchTerm = 'react'
+  searchTerm = "react";
 
   @action
-  increment() {
-    this.count++
+  changeSearchTerm(newTerm) {
+    this.searchTerm = newTerm;
   }
 
   @action
-  decrement() {
-    this.count--
-  }
-
-  @computed
-  get doubleCount() {
-    return this.count * 2
+  search(term) {
+    return items.filter(obj =>
+      Object.values(obj).some(
+        val => val.toLowerCase().indexOf(term.toLowerCase()) !== -1
+      )
+    );
   }
 }
