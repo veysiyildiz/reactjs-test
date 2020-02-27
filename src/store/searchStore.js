@@ -1,20 +1,18 @@
-import { observable, action } from "mobx";
+import { observable, computed } from "mobx";
 import items from "../pages/items";
 
 export class SearchStore {
   @observable
-  searchTerm = "react";
+  searchTerm = "";
 
-  @action
-  changeSearchTerm(newTerm) {
-    this.searchTerm = newTerm;
-  }
+  @observable
+  items = items;
 
-  @action
-  search(term) {
-    return items.filter(obj =>
+  @computed
+  get searchResults() {
+    return this.items.filter(obj =>
       Object.values(obj).some(
-        val => val.toLowerCase().indexOf(term.toLowerCase()) !== -1
+        val => val.toLowerCase().indexOf(this.searchTerm.toLowerCase()) !== -1
       )
     );
   }
