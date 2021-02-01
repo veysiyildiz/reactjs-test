@@ -12,7 +12,7 @@ function Navigation() {
     <StyledWrapper>
       <div className="logo-wrapper">
         <img
-          src="https://camunda.com/svg/logo.svg"
+          src="https://camunda.com/wp-content/uploads/2020/05/logo-camunda-black.svg"
           alt="Camunda BPM is a scalable workflow and decision automation platform"
         />
       </div>

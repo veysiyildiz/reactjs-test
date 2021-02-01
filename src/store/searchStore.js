@@ -1,5 +1,5 @@
 import { observable, computed } from "mobx";
-import items from "../pages/items";
+import items from "../constants/items";
 
 export class SearchStore {
   @observable
@@ -10,9 +10,9 @@ export class SearchStore {
 
   @computed
   get searchResults() {
-    return this.items.filter(obj =>
+    return this.items.filter((obj) =>
       Object.values(obj).some(
-        val => val.toLowerCase().indexOf(this.searchTerm.toLowerCase()) !== -1
+        (val) => val.toLowerCase().indexOf(this.searchTerm.toLowerCase()) !== -1
       )
     );
   }
