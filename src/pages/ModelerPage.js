@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import BpmnJS from "bpmn-js/dist/bpmn-modeler.development.js";
 import "bpmn-js/dist/assets/diagram-js.css";
 import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
-import xml from "./newDiagram.bpmn";
+import xml from "../constants/newDiagram.bpmn";
 
 function ModelerPage() {
   const container = useRef(null);
@@ -12,7 +12,7 @@ function ModelerPage() {
       container: container.current
     });
 
-    modeler.importXML(xml, function(err) {
+    modeler.importXML(xml, function (err) {
       if (err) {
         console.log("error rendering", err);
       } else {
